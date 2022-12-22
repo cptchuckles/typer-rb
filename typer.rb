@@ -14,7 +14,7 @@ files.group_by { |f| f.split('/').last }.each do |_, paths|
   end
 end
 
-selection = IO.popen(['dmenu', '-p', 'Type file:'], 'r+') do |dmenu|
+selection = IO.popen(['dmenu', '-l', '15', '-p', 'Type file:'], 'r+') do |dmenu|
   file_lookup.each_key do |short_path|
     dmenu.puts short_path
   end
