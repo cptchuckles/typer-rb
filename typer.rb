@@ -27,4 +27,4 @@ selection.chomp!
 
 exit if file_lookup[selection].nil?
 
-`xdotool type --clearmodifiers --file #{file_lookup[selection]}`
+system('xdotool', 'type', '--clearmodifiers', '--file', file_lookup[selection])
