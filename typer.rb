@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-cachedir = ENV['XDG_CACHE'] || "#{ENV['HOME']}/.cache"
+typefilesdir = File.join(Dir.home, '.cache', 'typefiles')
 
-files = `fd . "#{cachedir}/typefiles" -d1 -H -X realpath`.split
+files = `fd . "#{typefilesdir}" -d1 -H -X realpath`.split
 
 file_lookup = {}
 files.group_by { |f| f.split('/').last }.each do |_, paths|
