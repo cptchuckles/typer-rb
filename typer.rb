@@ -8,7 +8,7 @@ files = `fd . "#{typefilesdir}" -d1 -H -X realpath`.split
 file_lookup = {}
 files.group_by { |f| f.split('/').last }.each do |_, paths|
   paths.map! { |path| path.split('/') }
-  elide = paths.first[..-2].intersection(*paths).length - 1
+  elide = paths.first[...-1].intersection(*paths).length - 1
   paths.each do |p|
     file_lookup[p[elide..].join('/')] = p.join '/'
   end
